@@ -11,8 +11,8 @@
 <form action="{% url 'ordersapp:order_delete' object.pk %}" method="post">
     {% csrf_token %}
     <div class="btn-group col-12" role="group">
-        <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-outline-secondary" role="button">{{ "отмена"|capfirst
-            }}</a>
+        <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-outline-secondary" role="button">
+            {{ "отмена"|capfirst}}</a>
         <button type="submit" class="btn btn-outline-danger">{{ "удалить"|capfirst }}</button>
     </div>
 </form>
