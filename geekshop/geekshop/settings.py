@@ -43,12 +43,19 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
+    # "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "social_django.middleware.SocialAuthExceptionMiddleware",
 ]
+
+if DEBUG:
+    MIDDLEWARE.extend(
+        [
+            "debug_toolbar.middleware.DebugToolbarMiddleware",
+        ]
+    )
 
 ROOT_URLCONF = "geekshop.urls"
 
@@ -196,21 +203,16 @@ SOCIAL_AUTH_GITHUB_SECRET = github_auth["client_secret"]
 
 # Django Debug Toolbar --->
 if DEBUG:
-    INSTALLED_APPS.extend([
-        "debug_toolbar",
-        "template_profiler_panel",
-        "django_extensions",
-    ])
-
-
-if DEBUG:
-    MIDDLEWARE.extend(
+    INSTALLED_APPS.extend(
         [
-            "debug_toolbar.middleware.DebugToolbarMiddleware",
+            "debug_toolbar",
+            "template_profiler_panel",
+            "django_extensions",
         ]
     )
 
-# Debgu tool bar settings
+
+# Debug tool bar settings
 if DEBUG:
 
     def show_toolbar(request):
