@@ -24,16 +24,6 @@ def main(request):
     return render(request, "mainapp/index.html", content)
 
 
-# def get_hot_product():
-#     products = Product.objects.filter(is_active=True, category__is_active=True)
-#     return random.sample(list(products), 1)[0]
-
-
-# def get_same_products(hot_product):
-#     same_products = Product.objects.filter(category=hot_product.category, is_active=True).exclude(pk=hot_product.pk)[:3]
-#     return same_products
-
-
 def get_hot_product_list():
     products = Product.objects.filter(is_active=True, category__is_active=True).select_related("category")
     hot_product = random.sample(list(products), 1)[0]
