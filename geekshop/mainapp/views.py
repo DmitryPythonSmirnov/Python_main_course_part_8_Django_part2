@@ -7,7 +7,6 @@ from django.utils import timezone
 
 from .models import Contact, Product, ProductCategory
 
-
 # class Fact(object):
 #     def get_factorial(self):
 #         fact = 1

@@ -76,6 +76,6 @@ $(document).ready(function () {
         prefix: 'orderitems',
         added: setDefaultValue,
         removed: itemDelete,
-        hideLastAddForm: false
+        hideLastAddForm: false,
     });
 });
